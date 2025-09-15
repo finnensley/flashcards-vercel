@@ -1,0 +1,45 @@
+.create-flashcard {
+  /* background-color: rgba(75, 60, 143, 0.627); */
+  background: linear-gradient(135deg, rgba(201, 163, 174, 0.407) 60%, rgba(246, 184, 220, 0.882) 100%);
+  width: 55%; 
+  padding: 10px;
+  padding: 10px 0px 20px 30px;
+  margin: 10px;
+  border-right: solid whitesmoke;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* width: 45%; */
+}
+
+#createCard {
+  border-top: solid whitesmoke;
+  border-bottom: solid whitesmoke;
+  color: white;
+  /* width: 30rem; */
+  /* height: 30rem; */
+  width: 80%;
+  height: 90%;
+  background: linear-gradient(135deg, rgba(176, 196, 222, 0.407) 60%, rgba(70, 131, 180, 0.822) 100%);
+  border-radius: 20px;
+  margin: 0px;
+  padding: 30px;
+  text-align: left;
+  font-size: larger;
+  line-height: 1.5;
+  perspective: 1500px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,128,0,0.18); /*add more dramatic box-shadow*/
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18),   /* soft shadow below */
+
+}
+
+input {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
+

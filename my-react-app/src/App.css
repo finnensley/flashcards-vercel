@@ -1,0 +1,128 @@
+#root {
+  max-width: 1280px;
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  text-align: center;
+}
+
+#signOut {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  background: linear-gradient(135deg, rgba(75, 60, 143, 0.295) 60%, rgba(108, 86, 207, 0.822) 100%);
+  border: none;
+  color: whitesmoke;
+  font-size: medium;
+  border-radius: 10px;
+  cursor: pointer;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.443);
+}
+
+ a {
+  text-decoration: none;
+}
+#toggleModeBtn {
+  background-color: transparent;
+  border-radius: 5px;
+  border-color: whitesmoke;
+  padding: 2px;
+  font-size: large;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,128,0,0.18); /*add more dramatic box-shadow*/
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18),   /* soft shadow below */
+    0 0px 2px rgba(0,128,0,0.18); /* subtle green glow */
+  cursor: pointer;
+}
+
+.header {
+  /* background-color: rgba(181, 218, 32, 0.321); */
+  background: linear-gradient(135deg, rgba(201, 163, 174, 0.407) 60%, rgba(246, 184, 220, 0.882) 100%);
+  color: whitesmoke;
+  border-right: solid whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin: 10px 0 5px 0;
+  padding: 5px;
+  gap: 10px;
+  width: 55%; 
+
+  /* width: 45%; */
+}
+
+.container {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+
+  /* flex-direction: row; 
+  align-items: flex-start;
+  justify-content: space-around; */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color: rgb(39, 76, 43); */
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
+  background-image: url("src/pexels-tirachard-kumtanom-112571-450066.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.443);
+
+
+}
+
+/* Stylings for Vite - React Page, use for reference */
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
