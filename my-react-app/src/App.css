@@ -74,7 +74,7 @@ body {
   margin: 0;
   padding: 0;
   color: whitesmoke;
-  background-image: url("src/pexels-tirachard-kumtanom-112571-450066.jpg");
+  background-image: url("/public/pexels-tirachard-kumtanom-112571-450066.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
