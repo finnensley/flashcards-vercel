@@ -41,22 +41,19 @@ function FlashcardLoader({ user }) {
       //If local JS and Custom, fetch both questions and answers and combine, can delete this if rework tables in db to one table with both q's and a's
       if (category === "Javascript") {
         const { data: jsQuestions, error: jsError } = await supabase
-          .from("flashcard_js_questions")
-          .select("*");
+          .rpc('get_random_js_questions', { limit_count: 10 });
         if (jsError) throw jsError;
 
         const { data: jsAnswers, error: aError } = await supabase
           .from("flashcard_js_answers")
-          .select("*");
-        if (aError) throw aError;
+          .select("*")
+            if (aError) throw aError;
 
         questionsData = jsQuestions;
         answerData = jsAnswers;
       } else if (category === "Custom") {
         const { data: customQuestions, error: qError } = await supabase
-          .from("flashcard_custom_questions")
-          .select("*")
-          .eq("user_id", user.id);
+          .rpc('get_random_custom_questions', { uid: user.id, limit_count: 10 });
         if (qError) throw qError;
 
         const { data: customAnswers, error: aError } = await supabase

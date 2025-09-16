@@ -1,7 +1,7 @@
 .flashcard-container {
   background: linear-gradient(135deg, rgba(75, 60, 143, 0.295) 60%, rgba(108, 86, 207, 0.822) 100%);
   width: 55%;
-  padding: 10px 0px 10px 15px;
+  padding: 10px 0px 20px 0px; /* use this to center question-block div*/
   margin: 10px;
   border-right: solid whitesmoke;
   border-radius: 20px;
@@ -20,16 +20,16 @@
   border-top: 2px solid #f1f1f1;
   border-bottom: 2px solid #f1f1f1;
   color: white;
-  /* width: 600px; */
   height: 300px;
   width: 90%;
   border-radius: 10px;
-  margin: 16px;
+  margin-left: auto; /* margin-left, -right, and display: block; work with flashcard-container padding to create centered div*/
+  margin-right: auto;
+  display: block;
   perspective: 1500px; /* increase for deeper 3D effect */
   box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,128,0,0.18); /*add more dramatic box-shadow*/
   text-shadow: 0 2px 8px rgba(0,0,0,0.18),   /* soft shadow below */
     0 0px 2px rgba(0,128,0,0.18); /* subtle green glow */
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;

@@ -11,6 +11,8 @@
 
 ## Challenges:
 
+## After adding more than 10 custom and js cards, double check random pull is working (.rpc)
+
 ## Move create card form to be centered, may be the shadow effect/3d effect pushing it to left. 
 
 ## the user has ability to delete custom flashcard from list, maybe just a x button ?
