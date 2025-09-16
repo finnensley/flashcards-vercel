@@ -116,5 +116,5 @@ function App() {
 
 export default App;
 
-// In terminal: npm run dev
+//Always use pnpm to run to be compatible with Supabase Auth UI
 // In terminal: pnpm run dev

@@ -8,6 +8,7 @@ function SignIn() {
       supabaseClient={supabase}
       appearance={{ theme: ThemeSupa }}
       providers={[ "email" ]}
+      redirectTo={window.location.origin}
     />
   );
 }
