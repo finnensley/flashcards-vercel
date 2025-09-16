@@ -7,7 +7,7 @@ function SignIn() {
     <Auth
       supabaseClient={supabase}
       appearance={{ theme: ThemeSupa }}
-      providers={["google", "github", "email"]}
+      providers={[ "email" ]}
     />
   );
 }
