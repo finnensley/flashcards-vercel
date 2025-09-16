@@ -36,7 +36,7 @@ function App() {
           <FlashcardLoader user={user} />
         </div>
         <div className="create-flashcard">
-          <h2>Create A Flashcard</h2>
+          <h2>Create Custom Flashcards</h2>
           {!user && (
             <div
               id="signIn"

@@ -56,6 +56,14 @@ function FlashcardLoader({ user }) {
           .rpc('get_random_custom_questions', { uid: user.id, limit_count: 10 });
         if (qError) throw qError;
 
+        if (!customQuestions || customQuestions.length === 0) {
+          alert("No custom flashcards have been created, yet. Create your own flashcards using the form below!")
+          setQuestions([]);
+          setError("");
+          setCurrentIdx(0);
+          return;
+        }
+
         const { data: customAnswers, error: aError } = await supabase
           .from("flashcard_custom_answers")
           .select("*");

@@ -30,9 +30,9 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,128,0,0.18); /*add more dramatic box-shadow*/
   text-shadow: 0 2px 8px rgba(0,0,0,0.18),   /* soft shadow below */
     0 0px 2px rgba(0,128,0,0.18); /* subtle green glow */
-  flex-direction: column;
+  /* flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   
 }
 
