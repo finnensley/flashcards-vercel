@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./FlashcardLoader.css";
 import { motion } from "framer-motion";
-import { supabase } from './supabaseClient.js';
+import { supabase } from "./supabaseClient.js";
 
 const apiKey = "oqqFU5lnrqOeNJIXJgwJOd8aVjpmKLXaX4wN8xrh";
 const urls = {
@@ -10,7 +10,7 @@ const urls = {
   React: `https://quizapi.io/api/v1/questions?apiKey=${apiKey}&limit=10&category=react`,
   DevOps: `https://quizapi.io/api/v1/questions?apiKey=${apiKey}&limit=10&category=devops`,
   Javascript: "Custom",
-  Custom: "Custom"
+  Custom: "Custom",
 };
 
 /*Add CSS, if find api*/
@@ -35,32 +35,30 @@ function FlashcardLoader() {
       //If local JS and Custom, fetch both questions and answers and combine, can delete this if rework tables in db to one table with both q's and a's
       if (category === "Javascript") {
         const { data: jsQuestions, error: jsError } = await supabase
-        .from('flashcard_js_questions')
-        .select('*');
+          .from("flashcard_js_questions")
+          .select("*");
         if (jsError) throw jsError;
 
         const { data: jsAnswers, error: aError } = await supabase
-        .from('flashcard_js_answers')
-        .select('*')
+          .from("flashcard_js_answers")
+          .select("*");
         if (aError) throw aError;
 
         questionsData = jsQuestions;
         answerData = jsAnswers;
-
       } else if (category === "Custom") {
         const { data: customQuestions, error: qError } = await supabase
-        .from('flashcard_custom_questions')
-        .select('*')
+          .from("flashcard_custom_questions")
+          .select("*");
         if (qError) throw qError;
 
         const { data: customAnswers, error: aError } = await supabase
-        .from('flashcard_custom_answers')
-        .select('*')
+          .from("flashcard_custom_answers")
+          .select("*");
         if (aError) throw aError;
 
         questionsData = customQuestions;
         answerData = customAnswers;
-
       } else {
         // For API categories, just set questions
         const response = await fetch(urls[category]);
@@ -69,31 +67,31 @@ function FlashcardLoader() {
         setError("");
         setCurrentIdx(0);
         return;
-    }
+      }
 
-        // Combine answers with questions
-        const combined = questionsData.map((q) => ({
-          ...q,
-          answers: answerData
-            .filter((a) => a.question_id === q.question_id)
-            .reduce((acc, a) => {
-              acc[String(a.option_id)] = a.option_text;
-              return acc;
-            }, {}),
-       
-          correct_answers: answerData
-            .filter((a) => a.question_id === q.question_id)
-            .reduce((acc, a) => {
-              acc[String(a.option_id)] = a.is_correct ? "true" : "false";
-              return acc;
-            }, {}),
-        }));
-        setQuestions(combined);
-        setError("");
-        setCurrentIdx(0); // Always start at first card
-      } catch (err) {
-        setError(err.message);
-        setQuestions([]);
+      // Combine answers with questions
+      const combined = questionsData.map((q) => ({
+        ...q,
+        answers: answerData
+          .filter((a) => a.question_id === q.question_id)
+          .reduce((acc, a) => {
+            acc[String(a.option_id)] = a.option_text;
+            return acc;
+          }, {}),
+
+        correct_answers: answerData
+          .filter((a) => a.question_id === q.question_id)
+          .reduce((acc, a) => {
+            acc[String(a.option_id)] = a.is_correct ? "true" : "false";
+            return acc;
+          }, {}),
+      }));
+      setQuestions(combined);
+      setError("");
+      setCurrentIdx(0); // Always start at first card
+    } catch (err) {
+      setError(err.message);
+      setQuestions([]);
     }
   }
 
@@ -102,9 +100,9 @@ function FlashcardLoader() {
     if (category === "Javascript" || category === "Custom") {
       fetchQuiz(category);
     } else {
-    fetchQuiz(urls[category]);
+      fetchQuiz([category]);
+    }
   }
-}
 
   function handleSelection(idx) {
     setFlipped((prev) => ({ ...prev, [idx]: true }));
@@ -123,7 +121,13 @@ function FlashcardLoader() {
       {/* for each key it creates a button with the category name as its label */}
       {/* onClick handler calls handleClick(cat), which fetches data for that category) */}
       {Object.keys(urls).map((cat) => (
-        <motion.button  animate={{ opacity: 1 }}  whileHover={{ scale: 1.1 }} id="categoryBtns" key={cat} onClick={() => handleClick(cat)}>
+        <motion.button
+          animate={{ opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          id="categoryBtns"
+          key={cat}
+          onClick={() => handleClick(cat)}
+        >
           {cat}
         </motion.button>
       ))}
