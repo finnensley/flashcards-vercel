@@ -20,13 +20,22 @@ function App() {
     return () => listener.subscription.unsubscribe();
   }, []);
 
+  useEffect(
+    () => {
+      if (user && showSignIn) {
+        setShowSignIn(false);
+      }
+    },
+    [ user, showSignIn ]
+  );
+
   return (
     <div>
       <div className="container">
         {user && (
-        <button id="signOut" onClick={() => supabase.auth.signOut()}>
-          Sign Out
-        </button>
+          <button id="signOut" onClick={() => supabase.auth.signOut()}>
+            Sign Out
+          </button>
         )}
         <header className="header">
           <h1>DevFlashCards</h1>
