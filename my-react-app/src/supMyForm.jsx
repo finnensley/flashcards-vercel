@@ -27,7 +27,7 @@ function MyForm({ user }) {
     // Insert question
     const { data: questionData, error: qError } = await supabase
       .from("flashcard_custom_questions")
-      .insert([{ question_text: question, category, difficulty }])
+      .insert([{ question_text: question, category, difficulty, user_id: user.id }])
       .select()
       .single();
     if (qError) {

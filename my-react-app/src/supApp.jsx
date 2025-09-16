@@ -33,7 +33,7 @@ function App() {
           <button id="toggleModeBtn">💡</button>
         </header>
         <div className="flashcard-container">
-          <FlashcardLoader />
+          <FlashcardLoader user={user} />
         </div>
         <div className="create-flashcard">
           <h2>Create A Flashcard</h2>

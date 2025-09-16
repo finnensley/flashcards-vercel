@@ -21,7 +21,7 @@ function escapeHTML(str) {
   return str;
 }
 
-function FlashcardLoader() {
+function FlashcardLoader({ user }) {
   const [questions, setQuestions] = useState([]);
   const [error, setError] = useState("");
   const [flipped, setFlipped] = useState({});
@@ -49,7 +49,8 @@ function FlashcardLoader() {
       } else if (category === "Custom") {
         const { data: customQuestions, error: qError } = await supabase
           .from("flashcard_custom_questions")
-          .select("*");
+          .select("*")
+          .eq("user_id", user.id);
         if (qError) throw qError;
 
         const { data: customAnswers, error: aError } = await supabase
