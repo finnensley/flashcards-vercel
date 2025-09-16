@@ -30,6 +30,12 @@ function FlashcardLoader({ user }) {
 
   async function fetchQuiz(category) {
     try {
+      if (category === "Custom") {
+        if(!user) {
+          alert("Please sign in to view your custom flashcards.")
+          return;
+        }
+      }
       let questionsData = [];
       let answerData = [];
       //If local JS and Custom, fetch both questions and answers and combine, can delete this if rework tables in db to one table with both q's and a's
