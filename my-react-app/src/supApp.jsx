@@ -5,6 +5,7 @@ import "./MyForm.css";
 import React, { useState, useEffect } from "react";
 import { supabase } from "./supabaseClient.js";
 import SignIn from "./supSignIn.jsx";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,58 +21,97 @@ function App() {
     return () => listener.subscription.unsubscribe();
   }, []);
 
-  useEffect(
-    () => {
-      if (user && showSignIn) {
-        setShowSignIn(false);
-      }
-    },
-    [ user, showSignIn ]
-  );
+  useEffect(() => {
+    if (user && showSignIn) {
+      setShowSignIn(false);
+    }
+  }, [user, showSignIn]);
 
   return (
-    <div>
-      <div className="container">
-        {user && (
-          <button id="signOut" onClick={() => supabase.auth.signOut()}>
-            Sign Out
-          </button>
-        )}
-        <header className="header">
-          <h1>DevFlashCards</h1>
-          <button id="toggleModeBtn">💡</button>
-        </header>
-        <div className="flashcard-container">
-          <FlashcardLoader user={user} />
-        </div>
-        <div className="create-flashcard">
-          <h2>Create Custom Flashcards</h2>
-          {!user && (
-            <div
-              id="signIn"
-              style={{ color: "rgba(75, 60, 143, 0.77)", marginBottom: "1em" }}
-            >
-              Please{" "}
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowSignIn(true);
-                }}
-              >
-                sign in
-              </a>{" "}
-              to create a flashcard.
-            </div>
+    <BrowserRouter>
+      <div>
+        <div className="container">
+          {user && (
+            <button id="signOut" onClick={() => supabase.auth.signOut()}>
+              Sign Out
+            </button>
           )}
-          <div
-            style={{
-              opacity: user ? 1 : 0.5,
-              pointerEvents: user ? "auto" : "none",
-            }}
-          >
-            <MyForm user={user} />
-          </div>
+          <header className="header">
+            <h1>DevFlashCards</h1>
+            <button id="toggleModeBtn">💡</button>
+          </header>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <div className="flashcard-container">
+                    <FlashcardLoader user={user} />
+                  </div>
+
+                  <nav>
+                    <Link to="/MyForm">Create Custom Flashcards</Link>
+                    {!user && (
+                      <span style={{ marginLeft: 16 }}>
+                        Please{" "}
+                        <a
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setShowSignIn(true);
+                          }}
+                        >
+                          sign in
+                        </a>{" "}
+                        to create your own.
+                      </span>
+                    )}
+                  </nav>
+                </>
+              }
+            />
+            <Route
+              path="/MyForm"
+              element={
+                <div className="create-flashcard">
+                  <h2>Create Custom Flashcards</h2>
+                  {!user && (
+                    <div
+                      id="signIn"
+                      style={{
+                        color: "rgba(75, 60, 143, 0.77)",
+                        marginBottom: "1em",
+                      }}
+                    >
+                      Please{" "}
+                      <a
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setShowSignIn(true);
+                        }}
+                      >
+                        sign in
+                      </a>{" "}
+                      to create a flashcard.
+                    </div>
+                  )}
+                  <div
+                    style={{
+                      opacity: user ? 1 : 0.5,
+                      pointerEvents: user ? "auto" : "none",
+                    }}
+                  >
+                    <MyForm user={user} />
+                  </div>
+                  <br />
+                  <Link to="/" style={{ marginLeft: 16 }}>
+                    Back To Flashcards
+                  </Link>
+                </div>
+              }
+            />
+          </Routes>
           {/* Modal for SignIn */}
           {showSignIn && (
             <div
@@ -107,19 +147,8 @@ function App() {
             </div>
           )}
         </div>
-
-        {/* <div style={{ opacity: user ? 1 : 0.5, pointerEvent: user ? "auto" : "none" }}>
-                <MyForm user={user} /> */}
-        {/* <MyForm /> */}
-        {/* {user ? ( 
-                <MyForm user={user} />
-                ) : (
-                <SignIn />
-                )}
-                */}
-        {/* {user === null ? <div>Not signed in</div> : <div>Signed in</div>} */}
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
