@@ -57,14 +57,13 @@ function App() {
                             setShowSignIn(true);
                           }}
                         >
-                          Sign in 
-                        </a>{" "}
-                        to view custom flashcards.
+                          Sign in to view custom flashcards.
+                        </a>
                       </span>
                     )}
                   </nav>
 
-                  <div className="flashcard-container">
+                  <div className="flashcard-container" >
                     <FlashcardLoader user={user} />
                   </div>
 

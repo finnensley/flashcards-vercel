@@ -3,6 +3,8 @@ import "./FlashcardLoader.css";
 import { motion } from "framer-motion";
 import { supabase } from "./supabaseClient.js";
 
+
+
 const apiKey = "oqqFU5lnrqOeNJIXJgwJOd8aVjpmKLXaX4wN8xrh";
 const urls = {
   Linux: `https://quizapi.io/api/v1/questions?apiKey=${apiKey}&limit=10&category=linux`,

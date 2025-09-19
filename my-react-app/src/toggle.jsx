@@ -2,22 +2,25 @@ import React, { useState } from "react";
 
 
 const Toggle = () => {
-  const [themePicture, setThemePicture] = useState("dark");
   const [theme, setTheme] = useState("dark");
 
   const handleToggle = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
-    setThemePicture(themePicture === "dark" ? "light" : "dark");
     setTheme(newTheme)
 
     if (newTheme === "light") {
         document.body.style.background = "none";
-        document.body.style.color = "#374151";
-        document.getElementById("toggleModeBtn").style.backgroundColor = "#374151";
+        document.getElementById("toggleModeBtn").style.backgroundImage = "url('./public/pexels-tirachard-kumtanom-112571-450066.jpg')";
+        document.getElementById("toggleModeBtn").style.backgroundSize = "20%";
+
+
+
+    //  "#374151"
+
     } else {
         document.body.style.background = "";
-        document.body.style.color = "";
-        document.getElementById("toggleModeBtn").style.backgroundColor = "";
+        document.getElementById("toggleModeBtn").style.backgroundImage = "";
+        document.getElementById("toggleModeBtn").style.backgroundSize = "";
     }
         
   };
@@ -26,7 +29,7 @@ const Toggle = () => {
   return (
     <>
       <button onClick={handleToggle} id="toggleModeBtn">
-         {themePicture === "dark" ? "💡" : "💡"}
+        💡 
       </button>
     </>
   );
