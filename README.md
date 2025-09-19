@@ -10,6 +10,7 @@
 # A page to create flashcards using categorizes, with those cards always displayed, with the option to hide or 5-10 created flashcards plus api 10 populate when click button? 
 
 ## Challenges:
+## Explore using libraries like styled-components, @emotion/styled: import styled from 'styled-components';
 
 ## After adding more than 10 custom and js cards, double check random pull is working (.rpc)
 

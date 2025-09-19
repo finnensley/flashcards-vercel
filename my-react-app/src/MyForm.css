@@ -1,6 +1,7 @@
 .create-flashcard {
   /* background-color: rgba(75, 60, 143, 0.627); */
-  background: linear-gradient(135deg, rgba(201, 163, 174, 0.407) 60%, rgba(246, 184, 220, 0.882) 100%);
+  /* background: linear-gradient(135deg, rgba(201, 163, 174, 0.407) 60%, rgba(246, 184, 220, 0.882) 100%); */
+  background: linear-gradient(135deg, rgba(75, 60, 143, 0.295) 60%, rgba(108, 86, 207, 0.822) 100%);
   width: 55%; 
   padding: 10px 0px 20px 0px;
   margin: 10px;

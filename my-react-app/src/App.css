@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #root {
   max-width: 1280px;
   /* margin: 0 auto; */
@@ -44,10 +48,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  margin: 10px 0 5px 0;
+  margin: 10px 0 20px 0;
   padding: 5px;
   gap: 10px;
-  width: 55%; 
+  width: 45%; 
 
   /* width: 45%; */
 }
@@ -80,7 +84,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.443);
+  text-shadow: 0 2px 8px #00000071;
 
 
 }

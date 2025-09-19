@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "./supabaseClient.js";
 import SignIn from "./supSignIn.jsx";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Toggle from "./toggle.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -38,22 +39,17 @@ function App() {
           )}
           <header className="header">
             <h1>DevFlashCards</h1>
-            <button id="toggleModeBtn">💡</button>
+            {/* <button id="toggleModeBtn">💡</button> */}
+            <Toggle />
           </header>
           <Routes>
             <Route
               path="/"
               element={
                 <>
-                  <div className="flashcard-container">
-                    <FlashcardLoader user={user} />
-                  </div>
-
                   <nav>
-                    <Link to="/MyForm">Create Custom Flashcards</Link>
                     {!user && (
-                      <span style={{ marginLeft: 16 }}>
-                        Please{" "}
+                      <span style={{ marginLeft: 16, textShadow: "0 2px 8px #00000071", fontWeight: "bold", fontSize: "large"}}> 
                         <a
                           href="#"
                           onClick={(e) => {
@@ -61,11 +57,19 @@ function App() {
                             setShowSignIn(true);
                           }}
                         >
-                          sign in
+                          Sign in 
                         </a>{" "}
-                        to create your own.
+                        to view custom flashcards.
                       </span>
                     )}
+                  </nav>
+
+                  <div className="flashcard-container">
+                    <FlashcardLoader user={user} />
+                  </div>
+
+                  <nav>
+                    <Link to="/MyForm" style={{ fontWeight: "bold", fontSize: "large"}} >Create Custom Flashcards</Link>
                   </nav>
                 </>
               }
@@ -105,7 +109,7 @@ function App() {
                     <MyForm user={user} />
                   </div>
                   <br />
-                  <Link to="/" style={{ marginLeft: 16 }}>
+                  <Link to="/" style={{ marginLeft: 16, fontWeight: "bold", fontSize: "large", color: "white" }}>
                     Back To Flashcards
                   </Link>
                 </div>
