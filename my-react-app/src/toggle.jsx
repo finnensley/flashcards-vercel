@@ -10,7 +10,7 @@ const Toggle = () => {
 
     if (newTheme === "light") {
         document.body.style.background = "none";
-        document.getElementById("toggleModeBtn").style.backgroundImage = "url('./public/pexels-tirachard-kumtanom-112571-450066.jpg')";
+        document.getElementById("toggleModeBtn").style.backgroundImage = "url('/pexels-tirachard-kumtanom-112571-450066.jpg')";
         document.getElementById("toggleModeBtn").style.backgroundSize = "20%";
 
 
